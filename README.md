@@ -18,15 +18,21 @@ Only limitation here is, it is useful for short range data transfer.
 #Solution Approach:
 
 •	Establish connection between two devices using Bluetooth or WIFI Direct
+
 •	Encryption of sending data using Crypto library on the sender side.
+
 •	Decryption of Receiving data using Crypto library on the receiver side
+
 •	Retrieval of actual data
 
 #Implementation Details
 
 Android Bluetooth API and Java
+
 Android Crypto API 
+
 Platform: Android and JAVA
+
 ZRTP : ZRTP (composed of Z and Real-time Transport Protocol) is a cryptographic key-agreement protocol to negotiate the keys for encryption between two end points in a Voice over Internet Protocol (VoIP) phone telephony call based on the Real-time Transport Protocol. It uses Diffie–Hellman key exchange and the Secure Real-time Transport Protocol (SRTP) for encryption. (Wikipedia)
 
 #Timeline (Approximate)
