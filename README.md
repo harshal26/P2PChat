@@ -37,8 +37,14 @@ ZRTP : ZRTP (composed of Z and Real-time Transport Protocol) is a cryptographic 
 
 #Timeline (Approximate)
 •	Learn Android API and other require fundamentals : September
+
 •	Create GUI and other structure : September
+
 •	Learning Bluetooth and establishing connection : October
+
 •	Study Crypto library and implementation : October – November
+
 •	Testing of application - November
+
 •	Implementation for multiple user (if possible) – November-December
+
