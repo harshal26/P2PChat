@@ -3,7 +3,7 @@
     package="com.example.p2pchat579"
     android:versionCode="1"
     android:versionName="1.0" >
-
+<!-- Git test -->
     <uses-sdk
         android:minSdkVersion="14"
         android:targetSdkVersion="21" />
