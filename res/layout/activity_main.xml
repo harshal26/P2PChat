@@ -6,11 +6,45 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.example.p2pchat579.MainActivity" >
+    tools:context="com.example.assignment1.MainActivity" >
 
-    <TextView
+    <Button
+        android:id="@+id/bluetoothButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/hello_world" />
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="14dp"
+        android:text="Connect   BT" />
+
+    <Button
+        android:id="@+id/wifiButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/bluetoothButton"
+        android:layout_below="@+id/bluetoothButton"
+        android:text="Connect WiFi" />
+
+    <TextView
+        android:id="@+id/btStatus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/bluetoothButton"
+        android:layout_alignBottom="@+id/bluetoothButton"
+        android:layout_alignParentRight="true"
+        android:text="Connected"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <TextView
+        android:id="@+id/wifiStatus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/wifiButton"
+        android:layout_alignBottom="@+id/wifiButton"
+        android:layout_alignParentRight="true"
+        android:text="Connected"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    
 
 </RelativeLayout>
