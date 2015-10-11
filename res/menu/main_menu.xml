@@ -1,0 +1,16 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.example.bluetoothchat.MainActivity" >
+
+    <item
+        android:id="@+id/scan"
+        android:orderInCategory="100"
+        android:title="Scan"/>
+     <item
+        android:id="@+id/discoverable"
+        android:orderInCategory="100"
+        
+        android:title="Make Discoverable"/>
+      
+
+</menu>
