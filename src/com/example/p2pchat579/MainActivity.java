@@ -35,7 +35,8 @@ public class MainActivity extends Activity {
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-				//connectWifi();				
+				//connectWifi();
+				
 			}
 		});
 	}
@@ -46,8 +47,12 @@ public class MainActivity extends Activity {
 		startActivity(bluetoothIntent);
 	}
 	
-	
-	
+//	public void connectWifi()
+//	{
+//		Intent bluetoothIntent = new Intent(this,WiFiDirectActivity.class);
+//		startActivity(bluetoothIntent);
+//	}
+//	
 	
 	
 
