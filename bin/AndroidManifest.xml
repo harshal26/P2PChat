@@ -35,7 +35,7 @@
         </activity>
         
                  <activity
-            android:name="com.example.p2pchat579.activity.BluetoothChat"
+            android:name="com.example.p2pchat579.activity.ChattingActivity"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -46,7 +46,7 @@
         
         
          <activity
-             android:name="com.example.p2pchat579.activity.DeviceListActivity"
+             android:name="com.example.p2pchat579.activity.ListAllDeviceActivity"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

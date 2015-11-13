@@ -16,7 +16,7 @@ import com.example.p2pchat579.R.layout;
 import com.example.p2pchat579.R.menu;
 import com.example.p2pchat579.crypto.Encryption;
 import com.example.p2pchat579.crypto.MyEncryptedData;
-import com.example.p2pchat579.service.BluetoothChatService;
+import com.example.p2pchat579.service.ChattingService;
 
 import android.app.Activity;
 import android.bluetooth.BluetoothAdapter;
@@ -44,7 +44,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class BluetoothChat extends Activity {
+public class ChattingActivity extends Activity {
 	
 	BluetoothAdapter bluetoothAdapter;
 	Context context;
@@ -60,7 +60,7 @@ public class BluetoothChat extends Activity {
     public static final String TOAST = "toast";
 	
 	//object for chat service
-	private BluetoothChatService mChatService = null;
+	private ChattingService mChatService = null;
 	
 	
 	
@@ -272,7 +272,7 @@ public class BluetoothChat extends Activity {
 	            }
 	        });
 	        // Initialize the BluetoothChatService to perform bluetooth connections
-	        mChatService = new BluetoothChatService(this, mHandler);
+	        mChatService = new ChattingService(this, mHandler);
 	        // Initialize the buffer for outgoing messages
 	        mOutStringBuffer = new StringBuffer("");
 	        photoButton = (Button)findViewById(R.id.photoButton);
@@ -298,7 +298,7 @@ public class BluetoothChat extends Activity {
 	    
 	    public void showPeers()
 	    {
-	    	 Intent serverIntent = new Intent(this, DeviceListActivity.class);
+	    	 Intent serverIntent = new Intent(this, ListAllDeviceActivity.class);
 	           startActivityForResult(serverIntent, MyConstants.REQUEST_CONNECT_DEVICE);
 	    }
 	    
@@ -440,7 +440,7 @@ public class BluetoothChat extends Activity {
 	            if (resultCode == Activity.RESULT_OK) {
 	                // Get the device MAC address
 	                String address = data.getExtras()
-	                                     .getString(DeviceListActivity.EXTRA_DEVICE_ADDRESS);
+	                                     .getString(ListAllDeviceActivity.EXTRA_DEVICE_ADDRESS);
 	                // Get the BLuetoothDevice object
 	                BluetoothDevice device = bluetoothAdapter.getRemoteDevice(address);
 	                // Attempt to connect to the device
@@ -491,7 +491,7 @@ public class BluetoothChat extends Activity {
 	        switch (item.getItemId()) {
 	        case R.id.scan:
 	            // Launch the DeviceListActivity to see devices and do scan
-	            Intent serverIntent = new Intent(this, DeviceListActivity.class);
+	            Intent serverIntent = new Intent(this, ListAllDeviceActivity.class);
 	            startActivityForResult(serverIntent, MyConstants.REQUEST_CONNECT_DEVICE);
 	            return true;
 	        case R.id.discoverable:

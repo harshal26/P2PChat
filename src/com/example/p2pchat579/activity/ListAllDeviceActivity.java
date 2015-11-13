@@ -25,7 +25,7 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 
-public class DeviceListActivity extends Activity{
+public class ListAllDeviceActivity extends Activity{
 	
 	 // Debugging
     private static final String TAG = "DeviceListActivity";

@@ -16,10 +16,10 @@ import android.os.Message;
 import android.util.Log;
 
 import com.example.p2pchat579.*;
-import com.example.p2pchat579.activity.BluetoothChat;
+import com.example.p2pchat579.activity.ChattingActivity;
 
 
-public class BluetoothChatService{
+public class ChattingService{
 	
 	private static final String TAG = "BluetoothChatService";
     private static final boolean D = true;
@@ -37,13 +37,7 @@ public class BluetoothChatService{
     private AcceptThread mAcceptThread;
     private ConnectThread mConnectThread;
     private ConnectedThread mConnectedThread;
-    private int mState;
-    
-    
-    
- 
-
-    
+    private int mState;   
     
     
     
@@ -52,7 +46,7 @@ public class BluetoothChatService{
      * @param context  The UI Activity Context
      * @param handler  A Handler to send messages back to the UI Activity
      */
-    public BluetoothChatService(Context context, Handler handler) {
+    public ChattingService(Context context, Handler handler) {
         mAdapter = BluetoothAdapter.getDefaultAdapter();
         mState = MyConstants.STATE_NONE;
         mHandler = handler;
@@ -138,7 +132,7 @@ public class BluetoothChatService{
         // Send the name of the connected device back to the UI Activity
         Message msg = mHandler.obtainMessage(MyConstants.MESSAGE_DEVICE_NAME);
         Bundle bundle = new Bundle();
-        bundle.putString(BluetoothChat.DEVICE_NAME, device.getName());
+        bundle.putString(ChattingActivity.DEVICE_NAME, device.getName());
         msg.setData(bundle);
         mHandler.sendMessage(msg);
         setState(MyConstants.STATE_CONNECTED);
@@ -182,7 +176,7 @@ public class BluetoothChatService{
         // Send a failure message back to the Activity
         Message msg = mHandler.obtainMessage(MyConstants.MESSAGE_TOAST);
         Bundle bundle = new Bundle();
-        bundle.putString(BluetoothChat.TOAST, "Unable to connect device");
+        bundle.putString(ChattingActivity.TOAST, "Unable to connect device");
         msg.setData(bundle);
         mHandler.sendMessage(msg);
     }
@@ -194,7 +188,7 @@ public class BluetoothChatService{
         // Send a failure message back to the Activity
         Message msg = mHandler.obtainMessage(MyConstants.MESSAGE_TOAST);
         Bundle bundle = new Bundle();
-        bundle.putString(BluetoothChat.TOAST, "Device connection was lost");
+        bundle.putString(ChattingActivity.TOAST, "Device connection was lost");
         msg.setData(bundle);
         mHandler.sendMessage(msg);
     }
@@ -206,6 +200,7 @@ public class BluetoothChatService{
     
     //All the threads
     /**
+     * Reference : http://developer.android.com/guide/topics/connectivity/bluetooth.html
      * This thread runs while listening for incoming connections. It behaves
      * like a server-side client. It runs until a connection is accepted
      * (or until cancelled).
@@ -245,7 +240,7 @@ public class BluetoothChatService{
                 }
                 // If a connection was accepted
                 if (socket != null) {
-                    synchronized (BluetoothChatService.this) {
+                    synchronized (ChattingService.this) {
                         switch (mState) {
                         case MyConstants.STATE_LISTEN:
                         case MyConstants.STATE_CONNECTING:
@@ -277,6 +272,7 @@ public class BluetoothChatService{
         }
     }
     /**
+     * Reference : http://developer.android.com/guide/topics/connectivity/bluetooth.html
      * This thread runs while attempting to make an outgoing connection
      * with a device. It runs straight through; the connection either
      * succeeds or fails.
@@ -315,11 +311,11 @@ public class BluetoothChatService{
                     Log.e(TAG, "unable to close() socket during connection failure", e2);
                 }
                 // Start the service over to restart listening mode
-                BluetoothChatService.this.start();
+                ChattingService.this.start();
                 return;
             }
             // Reset the ConnectThread because we're done
-            synchronized (BluetoothChatService.this) {
+            synchronized (ChattingService.this) {
                 mConnectThread = null;
             }
             // Start the connected thread
@@ -334,6 +330,7 @@ public class BluetoothChatService{
         }
     }
     /**
+     * Reference : http://developer.android.com/guide/topics/connectivity/bluetooth.html
      * This thread runs during a connection with a remote device.
      * It handles all incoming and outgoing transmissions.
      */

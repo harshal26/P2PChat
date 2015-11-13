@@ -48,7 +48,7 @@ public class MainActivity extends Activity {
 	
 	public void connectBluetooth()
 	{
-		Intent bluetoothIntent = new Intent(this,BluetoothChat.class);
+		Intent bluetoothIntent = new Intent(this,ChattingActivity.class);
 		startActivity(bluetoothIntent);
 	}
 	
