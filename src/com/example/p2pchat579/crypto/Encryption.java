@@ -54,7 +54,7 @@ public class Encryption {
 		KeyGenerator gen = KeyGenerator.getInstance(SECURITY_ALGO);		
 		SecureRandom secRandom = SecureRandom.getInstance("SHA1PRNG", "Crypto");
 		secRandom.setSeed(keyStart);
-		gen.init(128, secRandom); //keysize = 128 for AES
+		gen.init(128, secRandom); //keysize = 128 for AES , Initializes this key generator for a certain keysize, using a user-provided source of randomness.
 		SecretKey secretkey = gen.generateKey();
 		byte[] key = secretkey.getEncoded();
 		return key;		
